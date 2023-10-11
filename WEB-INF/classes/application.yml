@@ -1,0 +1,27 @@
+spring:
+  messages:
+    basename: messages_ja
+    cache-duration: -1
+    encoding: UTF-8
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/taskreminder
+    #username: ${psql.user}
+    #password: ${psql.password}
+    username: postgres
+    password: password
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            #client-id: ${google.client.id}
+            #client-secret: ${google.client.secret}
+            client-id: 216149838910-tegll0vsprn7n7n1ompipdtkm6k8b6gl.apps.googleusercontent.com
+            client-secret: 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
+  test:
+    database:
+      replace: none            
+            

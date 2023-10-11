@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layouts/layout}">
+<head>
+</head>
+<body>
+	<div layout:fragment="contents">
+		<div class="py-5 text-center">
+			<h2>ログイン</h2>
+			<p class="lead">
+				習慣にしたいけど長続きしない日々の読書、ランニング、ダイエット。<br>そんな時は記録を取って、日々の積み上げを可視化しましょう。
+			</p>
+		</div>
+
+		<div class="container-signin d-grid gap-3">
+			<form th:object="${userForm}" method="post" class="form-horizontal" th:action="@{/login}">
+				<div class="d-grid gap-3">
+					<div class="text-center">
+						<img class="mb-4" th:src="@{images/login_img.png}" alt="" width="200" height="200">
+					</div>
+					<div class="form-floating">
+						<input type="email" class="form-control" name="username" id="floatingInput" placeholder="name@example.com">
+						<label for="floatingInput">Eメール</label>
+					</div>
+					<div class="form-floating">
+						<input type="password" class="form-control" name="password" id="floatingPassword" placeholder="Password">
+						<label for="floatingPassword">パスワード</label>
+					</div>
+					<input type="submit" class="w-100 btn btn-lg btn-primary" name="confirm" th:value="#{A0008_login_button}" />
+				</div>
+			</form>
+
+			<form method="get" class="form-horizontal" th:action="@{/users/new}">
+				<input type="submit" class="w-100 btn btn-lg btn-secondary" th:value="#{A0008_new_user_create_button}" />
+			</form>
+
+			<a class="btn btn-lg btn-social btn-google text-center" th:href="@{/oauth2/authorization/google}"> 
+				<span class="fa fa-google"></span>
+				<span th:text="#{A0007_google_login_button}" /></span>
+			</a>
+		</div>
+
+	</div>
+</body>
+</html>
